@@ -26,5 +26,18 @@ export default function (/* { store, ssrContext } */) {
     base: process.env.VUE_ROUTER_BASE
   })
 
+  Router.beforeEach((to, from, next) => {
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+      const auth = localStorage.getItem('auth')
+      if (auth !== null && auth.access_token !== '') {
+        next()
+      } else {
+        next('/login')
+      }
+    } else {
+      next()
+    }
+  })
+
   return Router
 }
