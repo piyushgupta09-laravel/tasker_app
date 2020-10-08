@@ -43,8 +43,9 @@ export default {
       console.log('valid logout')
       state.logged = false
       localStorage.removeItem('auth')
+      localStorage.removeItem('data')
       axios.defaults.headers.common.Authorization = 'none'
-      this.$router.push('login')
+      this.$router.push('/login')
       return
     }
     state.valid = authResponse.data.valid
@@ -57,7 +58,7 @@ export default {
     // Case 3 : Valid Signup - 201
     if (authResponse.data.valid && authResponse.status === 201) {
       console.log('valid signup')
-      this.$router.push('login')
+      this.$router.push('/login')
       return
     }
     // Case 4 : Valid Login - 202
@@ -78,7 +79,7 @@ export default {
         type: 'info',
         message: authResponse.data.message
       })
-      this.$router.push('login')
+      this.$router.push('/login')
       return
     }
     // Any other case thats left

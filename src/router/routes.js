@@ -1,4 +1,6 @@
 const routes = [
+
+  // General Routes
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
@@ -7,6 +9,7 @@ const routes = [
     ]
   },
 
+  // Secured Routes
   {
     path: '/dashboard',
     component: () => import('layouts/AppLayout.vue'),
@@ -15,11 +18,39 @@ const routes = [
         path: '',
         name: 'dashboard',
         component: () => import('pages/user/dashboard.vue')
+      },
+      {
+        path: '/projects',
+        name: 'projects',
+        component: () => import('pages/user/projects.vue')
+      },
+      {
+        path: '/profile',
+        name: 'profile',
+        component: () => import('pages/user/profile.vue')
+      },
+      {
+        path: '/settings',
+        name: 'settings',
+        component: () => import('pages/user/settings.vue')
+      }
+    ],
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/project',
+    component: () => import('layouts/SubLayout.vue'),
+    children: [
+      {
+        path: '',
+        name: 'project',
+        component: () => import('pages/user/project.vue')
       }
     ],
     meta: { requiresAuth: true }
   },
 
+  // Auth Routes
   {
     path: '/',
     component: () => import('layouts/AuthLayout.vue'),
@@ -41,8 +72,8 @@ const routes = [
       }
     ]
   },
-  // Always leave this as last one,
-  // but you can also remove it
+
+  // Fallback Route
   {
     path: '*',
     component: () => import('pages/Error404.vue')

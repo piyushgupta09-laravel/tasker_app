@@ -10,13 +10,11 @@ export default {
   name: 'App',
   mounted () {
     console.log('App@mounted')
-    // Loading Bar
     this.$q.loadingBar.setDefaults({
       color: 'orange',
       size: '10px',
       position: 'bottom'
     })
-    // Notification
     this.$q.notify.setDefaults({
       position: 'bottom',
       timeout: 5000,

@@ -19,7 +19,7 @@ export default {
 }
 </script>
 
-<style scooped>
+<style scoped>
 .q-item {
   min-height: auto;
   padding: 2px;

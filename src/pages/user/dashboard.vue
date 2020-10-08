@@ -1,8 +1,10 @@
 <template>
   <q-page class="flex flex-center">
-    <h3>User Dashboard</h3>
-    <q-btn color="red" label="Logout" @click="logout" />
-  </q-page>
+    <q-btn class="q-ma-md q-pa-lg" color="teal" label="Projects" to="/projects" />
+    <q-btn class="q-ma-md q-pa-lg" color="pink" label="Profile" to="/profile" />
+    <q-btn class="q-ma-md q-pa-lg" color="deep-purple" label="Settings" to="/settings" />
+    <q-btn class="q-ma-md q-pa-lg" color="red" label="Logout" @click="logout" />
+</q-page>
 </template>
 
 <script>

@@ -1,7 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import app from './app'
 import auth from './auth'
+import counter from './counter'
+import data from './data'
 
 Vue.use(Vuex)
 
@@ -17,12 +20,16 @@ Vue.use(Vuex)
 export default function (/* { ssrContext } */) {
   const Store = new Vuex.Store({
     modules: {
-      auth
+      app,
+      auth,
+      data,
+      counter
     },
 
     // enable strict mode (adds overhead!)
     // for dev mode only
-    strict: process.env.DEV
+    // strict: process.env.DEV
+    strict: true
   })
 
   return Store

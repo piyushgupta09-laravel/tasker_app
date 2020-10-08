@@ -9,3 +9,12 @@ body::-webkit-scrollbar {
   position: absolute;
   min-height: auto !important;
 }
+
+.form-title {
+  color: aliceblue;
+  padding-top: 4px;
+  padding-left: 4px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-family: 'Quicksand';
+}
